@@ -1,0 +1,347 @@
+body {
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+}
+
+body > div {
+  padding: 20px;
+}
+body > h1 {
+  padding: 20px;
+}
+
+img {
+  border-radius: 5px;
+  transition: all 1s easy;
+}
+
+img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 10px #333;
+}
+
+table {
+  margin-top: 50px;
+}
+
+a,
+td div {
+  display: inline-block;
+  color: blue !important;
+  transition: all 1s easy;
+  cursor: pointer;
+}
+
+a:hover,
+td div:hover {
+  transform: scale(1.03);
+  text-decoration: underline;
+}
+
+button {
+  margin: 20px auto;
+}
+.container {
+  width: 200vw;
+  height: 200vh;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  /* 40px 300px 1fr 1fr 60px; */
+
+  gap: 10px;
+  padding: 10px;
+
+  box-sizing: border-box;
+}
+div#moviesDiv {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
+
+#userInfo {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  width: 300px;
+  border: 1px grey dotted;
+  padding: 20px;
+}
+
+.wrongUser {
+  display: none;
+  color: red;
+  font-style: italic;
+  font-weight: lighter;
+}
+#editModalWrapper {
+  display: none;
+  position: absolute;
+  z-index: 2;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+#editModalWrapper::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.3);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.editModal {
+  position: absolute;
+  z-index: 3;
+  background-color: #fff;
+  box-shadow: 0 0 5px #333;
+  border-radius: 5px;
+  padding: 0;
+}
+
+.editModal header {
+  border-bottom: 1px solid #ccc;
+  padding: 5px 20px;
+}
+
+.editModal footer {
+  display: flex;
+  border-top: 1px solid #ccc;
+  padding: 10px 20px;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.editModal button {
+  margin: 0;
+}
+.modalContent {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modalContent label::before {
+  content: "* ";
+  color: red;
+}
+
+#editModalWrapper.view .modalContent label::before {
+  content: none;
+}
+
+#tab tbody tr td {
+  transition: all 2s ease;
+}
+
+#tab tbody tr:hover td {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.error {
+  border: 1px solid red;
+}
+
+.userWrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 2%;
+}
+
+.userWrapper > div:first-child {
+  width: 170px;
+  padding: 20px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  background-color: #fefefe;
+  transition: all 2s ease;
+  position: relative;
+}
+
+.status_red {
+  border-color: red !important;
+}
+.status_green {
+  border-color: green !important;
+}
+
+.userWrapper > div:first-child:hover {
+  box-shadow: 0 0 3px #ccc;
+  background-color: #efefef;
+}
+
+.userWrapper div.list {
+  width: 25%;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  background-color: #fefefe;
+  transition: all 2s ease;
+  /* height: calc(100% - 60px); */
+  position: relative;
+}
+
+.userWrapper header {
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.userWrapper header:hover {
+  text-decoration: underline;
+}
+
+.userWrapper label {
+  width: 90px;
+  display: inline-block;
+}
+
+.userWrapper .formItem {
+  margin-bottom: 10px;
+}
+
+.userWrapper ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.hr strong {
+  margin-right: 10px;
+}
+
+.hr > div {
+  border-bottom: 1px solid #dedede;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.hr:last-child > div {
+  border: none;
+  margin-bottom: 0;
+}
+
+.add_user {
+  position: absolute;
+  z-index: 2;
+  border-radius: 5px;
+  top: calc(50% - 60px);
+  left: calc(50% - 85px);
+  height: 140px;
+  width: 170px;
+}
+
+.add_user::before {
+  content: "";
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.add_user > div {
+  border-radius: 5px;
+  position: absolute;
+  z-index: 3;
+  background-color: #fff;
+  height: inherit;
+  border: 1px solid #333;
+  box-shadow: 0 0 10px #ccc;
+  padding: 20px 30px;
+}
+
+.add_footer {
+  display: flex;
+}
+
+.add_user .formItem {
+  position: relative;
+}
+
+.add_user .formItem::after {
+  display: none;
+}
+
+.add_user .formItem.error {
+  border: none;
+}
+
+.add_user .formItem.error::after {
+  display: inline-block;
+  content: "Field cannot be empty";
+  font-size: 10px;
+  position: absolute;
+  right: 5px;
+  color: red;
+  bottom: 2px;
+}
+
+.add_task {
+  position: absolute;
+  border-radius: 5px;
+  z-index: 2;
+  /* top: calc(50% - 60px); */
+  left: calc(50% - 85px);
+  height: 100px;
+  width: 170px;
+}
+
+.add_task::before {
+  content: "";
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.add_task > div {
+  border-radius: 5px;
+  position: absolute;
+  z-index: 3;
+  background-color: #fff;
+  height: inherit;
+  border: 1px solid #333;
+  box-shadow: 0 0 10px #ccc;
+  padding: 20px 30px;
+}
+
+.add_task .formItem {
+  position: relative;
+}
+
+.add_task .formItem::after {
+  display: none;
+}
+
+.add_task .formItem.error {
+  border: none;
+}
+
+.add_task .formItem.error::after {
+  display: inline-block;
+  content: "Field cannot be empty";
+  font-size: 10px;
+  position: absolute;
+  right: 5px;
+  color: red;
+  bottom: 2px;
+}
